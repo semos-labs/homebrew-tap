@@ -22,28 +22,28 @@ jobs:
           cat > Formula/aion.rb << 'EOF'
           class Aion < Formula
             desc "Terminal calendar client with vim-style keybindings"
-            homepage "https://github.com/nick-skriabin/aion"
+            homepage "https://github.com/semos-labs/aion"
             version "${{ github.event.client_payload.version }}"
             license "MIT"
 
             on_macos do
               on_arm do
-                url "https://github.com/nick-skriabin/aion/releases/download/v#{version}/aion-darwin-arm64"
+                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-darwin-arm64"
                 sha256 "${{ github.event.client_payload.sha256_darwin_arm64 }}"
               end
               on_intel do
-                url "https://github.com/nick-skriabin/aion/releases/download/v#{version}/aion-darwin-x64"
+                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-darwin-x64"
                 sha256 "${{ github.event.client_payload.sha256_darwin_x64 }}"
               end
             end
 
             on_linux do
               on_arm do
-                url "https://github.com/nick-skriabin/aion/releases/download/v#{version}/aion-linux-arm64"
+                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-linux-arm64"
                 sha256 "${{ github.event.client_payload.sha256_linux_arm64 }}"
               end
               on_intel do
-                url "https://github.com/nick-skriabin/aion/releases/download/v#{version}/aion-linux-x64"
+                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-linux-x64"
                 sha256 "${{ github.event.client_payload.sha256_linux_x64 }}"
               end
             end
