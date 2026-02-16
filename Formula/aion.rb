@@ -1,28 +1,28 @@
 class Aion < Formula
   desc "Terminal calendar client with vim-style keybindings"
   homepage "https://github.com/semos-labs/aion"
-  version "0.1.12"
+  version "0.1.13"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-darwin-arm64"
-      sha256 "7de46942d14a3434b8cde97465f757022011889445c6f8e661a2cc6cba32f81a"
+      sha256 "077c0cef07a9eeb650e2ef7650883f2f01ea913b8cb70fae76f5ef147bfe4b44"
     end
     on_intel do
       url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-darwin-x64"
-      sha256 "b73371e52e2093ad4801518019cca1f1b8b69764af69c223880ca70d67fbf04e"
+      sha256 "b71691613a7f335927c5660db738eff8177f30d2b59d828e95aaf860862124d1"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-linux-arm64"
-      sha256 "cdb8667de73c531b1c33e0098a87212870b1c3a6a47fc6a3b984c31e993950af"
+      sha256 "1c5516e926ff77e438b21da97622051d98043a5ff4dfe88f2f84e2a9cbe3c592"
     end
     on_intel do
       url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-linux-x64"
-      sha256 "caf65f44e722c9e46b2cc40cf8d58089f4067d5d47e936a65c749c061d48057b"
+      sha256 "261291e11ffc48fbdcba7e9ae4ad947da32a4c8ca8a4090fb97c177e57cd1693"
     end
   end
 
