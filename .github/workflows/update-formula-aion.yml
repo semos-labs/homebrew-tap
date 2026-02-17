@@ -27,28 +27,28 @@ jobs:
 
             on_macos do
               on_arm do
-                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-darwin-arm64"
+                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-darwin-arm64.tar.zst"
                 sha256 "${{ github.event.client_payload.sha256_darwin_arm64 }}"
               end
               on_intel do
-                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-darwin-x64"
+                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-darwin-x64.tar.zst"
                 sha256 "${{ github.event.client_payload.sha256_darwin_x64 }}"
               end
             end
 
             on_linux do
               on_arm do
-                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-linux-arm64"
+                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-linux-arm64.tar.zst"
                 sha256 "${{ github.event.client_payload.sha256_linux_arm64 }}"
               end
               on_intel do
-                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-linux-x64"
+                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-linux-x64.tar.zst"
                 sha256 "${{ github.event.client_payload.sha256_linux_x64 }}"
               end
             end
 
             def install
-              bin.install Dir["*"].first => "aion"
+              bin.install "aion"
             end
 
             test do
