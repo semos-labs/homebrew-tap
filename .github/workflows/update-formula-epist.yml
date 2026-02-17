@@ -1,59 +1,58 @@
-name: Update Formula
+name: Update Epist Formula
 
 on:
   repository_dispatch:
-    types: [update-formula]
+    types: [update-formula-epist]
 
 permissions:
   contents: write
 
 jobs:
-  update-aion:
-    name: Update Aion Formula
+  update-epist:
+    name: Update Epist Formula
     runs-on: ubuntu-latest
-    if: github.event.client_payload.formula == 'aion'
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Update Aion formula
+      - name: Update Epist formula
         run: |
           mkdir -p Formula
-          cat > Formula/aion.rb << 'EOF'
-          class Aion < Formula
-            desc "Terminal calendar client with vim-style keybindings"
-            homepage "https://github.com/semos-labs/aion"
+          cat > Formula/epist.rb << 'EOF'
+          class Epist < Formula
+            desc "Terminal email client with vim-style keybindings"
+            homepage "https://github.com/semos-labs/epist"
             version "${{ github.event.client_payload.version }}"
             license "MIT"
 
             on_macos do
               on_arm do
-                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-darwin-arm64"
+                url "https://github.com/semos-labs/epist/releases/download/v#{version}/epist-darwin-arm64.tar.zst"
                 sha256 "${{ github.event.client_payload.sha256_darwin_arm64 }}"
               end
               on_intel do
-                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-darwin-x64"
+                url "https://github.com/semos-labs/epist/releases/download/v#{version}/epist-darwin-x64.tar.zst"
                 sha256 "${{ github.event.client_payload.sha256_darwin_x64 }}"
               end
             end
 
             on_linux do
               on_arm do
-                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-linux-arm64"
+                url "https://github.com/semos-labs/epist/releases/download/v#{version}/epist-linux-arm64.tar.zst"
                 sha256 "${{ github.event.client_payload.sha256_linux_arm64 }}"
               end
               on_intel do
-                url "https://github.com/semos-labs/aion/releases/download/v#{version}/aion-linux-x64"
+                url "https://github.com/semos-labs/epist/releases/download/v#{version}/epist-linux-x64.tar.zst"
                 sha256 "${{ github.event.client_payload.sha256_linux_x64 }}"
               end
             end
 
             def install
-              bin.install Dir["*"].first => "aion"
+              bin.install "epist"
             end
 
             test do
-              assert_predicate bin/"aion", :executable?
+              assert_predicate bin/"epist", :executable?
             end
           end
           EOF
@@ -62,6 +61,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add Formula/aion.rb
-          git diff --staged --quiet || git commit -m "aion ${{ github.event.client_payload.version }}"
+          git add Formula/epist.rb
+          git diff --staged --quiet || git commit -m "epist ${{ github.event.client_payload.version }}"
           git push
