@@ -1,0 +1,77 @@
+name: Update Attyx Formula
+
+on:
+  repository_dispatch:
+    types: [update-formula-attyx]
+
+permissions:
+  contents: write
+
+jobs:
+  update-attyx:
+    name: Update Attyx Cask & Formula
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update Attyx cask
+        run: |
+          mkdir -p Casks
+          cat > Casks/attyx.rb << 'EOF'
+          cask "attyx" do
+            version "${{ github.event.client_payload.version }}"
+
+            on_arm do
+              url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-darwin-arm64.zip"
+              sha256 "${{ github.event.client_payload.darwin_arm64_sha256 }}"
+            end
+            on_intel do
+              url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-darwin-x64.zip"
+              sha256 "${{ github.event.client_payload.darwin_x64_sha256 }}"
+            end
+
+            name "Attyx"
+            desc "GPU-accelerated terminal emulator"
+            homepage "https://github.com/semos-labs/attyx"
+
+            app "Attyx.app"
+
+            zap trash: ["~/.config/attyx"]
+          end
+          EOF
+
+      - name: Update Attyx formula
+        run: |
+          mkdir -p Formula
+          cat > Formula/attyx.rb << 'EOF'
+          class Attyx < Formula
+            desc "GPU-accelerated terminal emulator"
+            homepage "https://github.com/semos-labs/attyx"
+            version "${{ github.event.client_payload.version }}"
+            license "MIT"
+
+            on_linux do
+              on_intel do
+                url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-x64.tar.zst"
+                sha256 "${{ github.event.client_payload.linux_x64_sha256 }}"
+              end
+            end
+
+            def install
+              bin.install "attyx"
+            end
+
+            test do
+              assert_predicate bin/"attyx", :executable?
+            end
+          end
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Casks/attyx.rb Formula/attyx.rb
+          git diff --staged --quiet || git commit -m "attyx ${{ github.event.client_payload.version }}"
+          git push
