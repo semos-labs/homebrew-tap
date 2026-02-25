@@ -4,6 +4,8 @@ class Attyx < Formula
   version "0.0.4"
   license "MIT"
 
+  depends_on :linux
+
   on_linux do
     on_intel do
       url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-x64.tar.zst"
