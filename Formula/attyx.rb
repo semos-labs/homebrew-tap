@@ -7,6 +7,13 @@ class Attyx < Formula
   depends_on :linux
 
   on_linux do
+    depends_on "glfw"
+    depends_on "freetype"
+    depends_on "fontconfig"
+    depends_on "libpng"
+    depends_on "mesa"
+    depends_on "zlib"
+
     on_intel do
       url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-x64.tar.zst"
       sha256 "e8b357283ce313abcbd1103ca8004797ef94ef11923800564b5bd7f7bd6150b2"
