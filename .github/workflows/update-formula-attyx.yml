@@ -65,6 +65,10 @@ jobs:
                 url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-x64.tar.zst"
                 sha256 "${{ github.event.client_payload.linux_x64_sha256 }}"
               end
+              on_arm do
+                url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-arm64.tar.zst"
+                sha256 "${{ github.event.client_payload.linux_arm64_sha256 }}"
+              end
             end
 
             def install

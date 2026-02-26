@@ -18,6 +18,10 @@ class Attyx < Formula
       url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-x64.tar.zst"
       sha256 "b94834c3c7f9714fbfed24f33418a3bf7d21a167237db385b3374601a82a20ee"
     end
+    on_arm do
+      url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-arm64.tar.zst"
+      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+    end
   end
 
   def install
