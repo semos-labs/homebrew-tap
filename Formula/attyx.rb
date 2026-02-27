@@ -26,6 +26,18 @@ class Attyx < Formula
 
   def install
     bin.install "attyx"
+    (share/"applications").install "attyx.desktop"
+    (share/"icons/hicolor/256x256/apps").install "attyx.png"
+  end
+
+  def post_install
+    user_apps = "#{ENV["HOME"]}/.local/share/applications"
+    mkdir_p user_apps
+    ln_sf "#{share}/applications/attyx.desktop", "#{user_apps}/attyx.desktop"
+
+    user_icons = "#{ENV["HOME"]}/.local/share/icons/hicolor/256x256/apps"
+    mkdir_p user_icons
+    ln_sf "#{share}/icons/hicolor/256x256/apps/attyx.png", "#{user_icons}/attyx.png"
   end
 
   test do
