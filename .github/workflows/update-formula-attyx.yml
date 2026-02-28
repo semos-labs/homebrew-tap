@@ -75,17 +75,16 @@ jobs:
               mkdir_p user_apps
 
               # Write .desktop with absolute path so app launchers find the binary
-              (Pathname.new(user_apps)/"attyx.desktop").write <<~DESKTOP
-                [Desktop Entry]
-                Name=Attyx
-                Comment=GPU-accelerated terminal emulator
-                Exec=#{bin}/attyx
-                Icon=#{share}/icons/hicolor/256x256/apps/attyx.png
-                Type=Application
-                Categories=System;TerminalEmulator;
-                Terminal=false
-                StartupWMClass=attyx
-              DESKTOP
+              desktop = "#{user_apps}/attyx.desktop"
+              File.write(desktop, "[Desktop Entry]\n" \
+                "Name=Attyx\n" \
+                "Comment=GPU-accelerated terminal emulator\n" \
+                "Exec=#{bin}/attyx\n" \
+                "Icon=#{share}/icons/hicolor/256x256/apps/attyx.png\n" \
+                "Type=Application\n" \
+                "Categories=System;TerminalEmulator;\n" \
+                "Terminal=false\n" \
+                "StartupWMClass=attyx\n")
 
               user_icons = "#{ENV["HOME"]}/.local/share/icons/hicolor/256x256/apps"
               mkdir_p user_icons
