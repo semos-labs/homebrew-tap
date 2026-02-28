@@ -24,9 +24,22 @@ class Attyx < Formula
   end
 
   def post_install
+    ohai "Installing desktop entry and icon..."
     user_apps = "#{ENV["HOME"]}/.local/share/applications"
     mkdir_p user_apps
-    ln_sf "#{share}/applications/attyx.desktop", "#{user_apps}/attyx.desktop"
+
+    # Write .desktop with absolute path so app launchers find the binary
+    (Pathname.new(user_apps)/"attyx.desktop").write <<~DESKTOP
+      [Desktop Entry]
+      Name=Attyx
+      Comment=GPU-accelerated terminal emulator
+      Exec=#{bin}/attyx
+      Icon=#{share}/icons/hicolor/256x256/apps/attyx.png
+      Type=Application
+      Categories=System;TerminalEmulator;
+      Terminal=false
+      StartupWMClass=attyx
+    DESKTOP
 
     user_icons = "#{ENV["HOME"]}/.local/share/icons/hicolor/256x256/apps"
     mkdir_p user_icons
