@@ -1,7 +1,7 @@
 class Attyx < Formula
   desc "GPU-accelerated terminal emulator"
   homepage "https://github.com/semos-labs/attyx"
-  version "0.1.21"
+  version "0.1.22"
   license "MIT"
 
   depends_on :linux
@@ -9,11 +9,11 @@ class Attyx < Formula
   on_linux do
     on_intel do
       url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-x64.tar.zst"
-      sha256 "ccee1457dfd14cbff3d4e6999184e947cf0b6eaf860ec6d77faebed522cb197d"
+      sha256 "a03d87f5c0e9cd12dc48ac6bff6695e0b62ec00632e593aebae5368c4506ac1f"
     end
     on_arm do
       url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-arm64.tar.zst"
-      sha256 "df26986368594aaf55d204aa1b18ed0dc0e75dd43e509b35b10e86784cd311e4"
+      sha256 "9d6ff87a530858e2460b15579832baa8c3566ec93d99f1b4eac96697385dfcd5"
     end
   end
 
@@ -24,7 +24,6 @@ class Attyx < Formula
   end
 
   def post_install
-    ohai "Installing desktop entry and icon..."
     user_apps = "#{ENV["HOME"]}/.local/share/applications"
     mkdir_p user_apps
 
