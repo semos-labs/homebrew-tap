@@ -1,28 +1,28 @@
 class Epist < Formula
   desc "Terminal email client with vim-style keybindings"
   homepage "https://github.com/semos-labs/epist"
-  version "0.1.19-rc1"
+  version "0.1.19"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/semos-labs/epist/releases/download/v#{version}/epist-darwin-arm64.tar.zst"
-      sha256 "bf31501d87fb0417ce2f5fccc48825c2d890c3cc197b669c40f1732ce042665d"
+      sha256 "0927253189f82d68e79e77e4bc1e0d1183cd28caaa2f0ac0809936ca00c1b84a"
     end
     on_intel do
       url "https://github.com/semos-labs/epist/releases/download/v#{version}/epist-darwin-x64.tar.zst"
-      sha256 "5deb4aa7e4a0329071d7b4ce61c7bf29eaf374c404ac9e0afa250985a86ecd56"
+      sha256 "4fea250538305dd6669cd03935b177c042b25747b6701e2babdbd065450b42b6"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/semos-labs/epist/releases/download/v#{version}/epist-linux-arm64.tar.zst"
-      sha256 "7c904fb897c647a3fa429b4db5cadd0ae45611fc903be2cbb7675ad063e75054"
+      sha256 "c62c2414773d1ad11ddc82eeea20d595ffdabff2db0fbca04df630eac988b57e"
     end
     on_intel do
       url "https://github.com/semos-labs/epist/releases/download/v#{version}/epist-linux-x64.tar.zst"
-      sha256 "c0b4740876ff0e3ca7b3e9e5decf0ef52c8713e76b68611d354dcefabc7adeef"
+      sha256 "cdacc7815fe56e8b03f88dcdc10d3a7c107498d74296c8cb4ed5a82b3ea32ed9"
     end
   end
 
