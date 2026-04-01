@@ -9,11 +9,11 @@ class Attyx < Formula
   on_linux do
     on_intel do
       url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-x64.tar.zst"
-      sha256 ""
+      sha256 "5b4d74d26c906a3c5256c9cd8b521e27e01fe56fd889aade73df7e67b1d76585"
     end
     on_arm do
       url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-arm64.tar.zst"
-      sha256 ""
+      sha256 "30d9865863be1ccc0ed35e6aaf960a2e58e05c5d8b245c4a96b331824d7e0a09"
     end
   end
 
