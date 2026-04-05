@@ -42,6 +42,18 @@ class Attyx < Formula
     user_icons = "#{ENV["HOME"]}/.local/share/icons/hicolor/256x256/apps"
     mkdir_p user_icons
     ln_sf "#{share}/icons/hicolor/256x256/apps/attyx.png", "#{user_icons}/attyx.png"
+
+    # Refresh desktop/icon caches so the app appears without relog
+    system "update-desktop-database", user_apps rescue nil
+    system "gtk-update-icon-cache", "-f", "-t", "#{ENV["HOME"]}/.local/share/icons/hicolor" rescue nil
+  end
+
+  def caveats
+    <<~EOS
+      To remove desktop integration files after uninstalling, run:
+        rm -f ~/.local/share/applications/attyx.desktop
+        rm -f ~/.local/share/icons/hicolor/256x256/apps/attyx.png
+    EOS
   end
 
   test do
