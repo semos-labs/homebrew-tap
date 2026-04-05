@@ -1,7 +1,7 @@
 class Attyx < Formula
   desc "GPU-accelerated terminal emulator"
   homepage "https://github.com/semos-labs/attyx"
-  version "0.3.7"
+  version "0.3.8"
   license "MIT"
 
   depends_on :linux
@@ -9,11 +9,11 @@ class Attyx < Formula
   on_linux do
     on_intel do
       url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-x64.tar.zst"
-      sha256 "9dc7269be7e5512da5d93ba0e9e2f2fcef4cfc70ed0d225bb3d6160c0e770aca"
+      sha256 "65f2f0ccdad362142f6e02d974e3e33204fab03b0e3a11ef7b903ca829bf0199"
     end
     on_arm do
       url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-arm64.tar.zst"
-      sha256 "3e068753f13d915fc163faf704fff332f7fdb523020aec1336fa4f7fb1cf7a33"
+      sha256 "2ad6ad1a2ce9069e524403ed325ac0c908c518b1adb966fd0ea9fef454d252da"
     end
   end
 
@@ -46,14 +46,6 @@ class Attyx < Formula
     # Refresh desktop/icon caches so the app appears without relog
     system "update-desktop-database", user_apps rescue nil
     system "gtk-update-icon-cache", "-f", "-t", "#{ENV["HOME"]}/.local/share/icons/hicolor" rescue nil
-  end
-
-  def caveats
-    <<~EOS
-      To remove desktop integration files after uninstalling, run:
-        rm -f ~/.local/share/applications/attyx.desktop
-        rm -f ~/.local/share/icons/hicolor/256x256/apps/attyx.png
-    EOS
   end
 
   test do
