@@ -1,28 +1,28 @@
 class Xyron < Formula
   desc "Project-aware shell with built-in runtime manager"
   homepage "https://github.com/semos-labs/xyron"
-  version "0.1.5"
+  version "0.1.6"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/semos-labs/xyron/releases/download/v#{version}/xyron-darwin-arm64.tar.gz"
-      sha256 "0490e46463fd65f300e9701bca4e6f8f5925725b79227a57fd4495b13fe0390b"
+      sha256 "689fd3da16af4158a86652a7e520e7620ce89cf25d161fa642575e23440b31e2"
     end
     on_intel do
       url "https://github.com/semos-labs/xyron/releases/download/v#{version}/xyron-darwin-x64.tar.gz"
-      sha256 "8a2abcda3e37693328a33d978bbdc895aa228e90db51b68993d51d4cfc3f3ef7"
+      sha256 "f16c691df68b23723e9d52baa3cf859f4ad1ba6de5d5e84938dcd63c70da0561"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/semos-labs/xyron/releases/download/v#{version}/xyron-linux-x64.tar.gz"
-      sha256 "df883c5753c84901b79b944ba915fe1207f365ca38ee84c211d7241fe7ad6897"
+      sha256 "86f37911ecd3e5987fec60826e405bd0b687e629e917cfb7967148eb87356646"
     end
     on_arm do
       url "https://github.com/semos-labs/xyron/releases/download/v#{version}/xyron-linux-arm64.tar.gz"
-      sha256 "1ca4fa7c50ce5b42e99e7b1c78f71a38c95d7575466f8b93a90708e4194a0c73"
+      sha256 "2f6b6210b14aae555a1d9070f2fdbe76c2dd7882f789e708381ee52a17b5493b"
     end
   end
 
