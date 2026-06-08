@@ -1,7 +1,7 @@
 class Attyx < Formula
   desc "GPU-accelerated terminal emulator"
   homepage "https://github.com/semos-labs/attyx"
-  version "0.4.4"
+  version "0.4.5"
   license "MIT"
 
   depends_on :linux
@@ -9,11 +9,11 @@ class Attyx < Formula
   on_linux do
     on_intel do
       url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-x64.tar.zst"
-      sha256 "a1f4e39cee4d77da8f2eb45e21e9c3b6b6dcf8ba448fb2aad1e8821eba52d15f"
+      sha256 "7fad008f5786a66045c7488e349728b02179980ea5a632f5e7573e6ce6499404"
     end
     on_arm do
       url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-linux-arm64.tar.zst"
-      sha256 "5396e3eff940b889e7dbf113514d8caeee20b7ebc57e2a79bb5eb1190a4430b3"
+      sha256 "84d76169f2caeeaa8932ff9de8787aeb07e47ba024bb01e7aa92a22db759e0d2"
     end
   end
 
