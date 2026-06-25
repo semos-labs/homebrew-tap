@@ -1,13 +1,13 @@
 cask "attyx" do
-  version "0.4.11"
+  version "0.4.12"
 
   on_arm do
     url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-darwin-arm64.zip"
-    sha256 "831fb0c81768d6649de854882b8f522f3c605e660a43a4e71d4d5c520598609b"
+    sha256 "24d5239fad5999bef8b1856dc6e2fb795d96bb34eca9a402ff7ef803157dc3f1"
   end
   on_intel do
     url "https://github.com/semos-labs/attyx/releases/download/v#{version}/attyx-darwin-x64.zip"
-    sha256 "10101770038bf5f5cc2c9290fe7746810e3aeee2a3940da21f576b2ffa4e008b"
+    sha256 "e05a627c4c89988f850d025b9c9d4bd7f944de6a66d7fc69edc785268ebc72a1"
   end
 
   name "Attyx"
